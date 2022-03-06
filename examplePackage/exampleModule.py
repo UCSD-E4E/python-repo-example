@@ -29,7 +29,7 @@ def exampleEntryPoint() -> None:
     """Example entry point that exersizes all of the module's functions
     """
     exampleFunction()
-    print(exampleReturningFunction)
+    print(exampleReturningFunction())
     print(f"This is a complex function: {exampleComplexFunction(3, ['asdf', 'foo', 'bar'])}")
 
 if __name__ == "__main__":
