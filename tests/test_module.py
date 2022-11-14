@@ -1,13 +1,15 @@
-from examplePackage import exampleModule
+"""Example test module
+"""
+from examplePackage import example_module
 
-def test_exampleFunction():
+def test_example_function():
     """Tests that the example function completes successfully
     """
-    exampleModule.exampleFunction()
-    assert(True)
+    example_module.example_function()
+    assert True
 
-def test_exampleReturn():
+def test_example_return():
     """Tests that the function returns something
     """
-    retval = exampleModule.exampleReturningFunction()
-    assert(retval is not None)
+    retval = example_module.example_returning_function()
+    assert retval is not None
