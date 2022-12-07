@@ -28,3 +28,18 @@ This is a critical file to include.  This should be an introduction to your repo
 This is the original way to package Python projects, which we probably still prefer.  However, in general, if you can, you should probably start using the newer packaging tools (`pyproject.toml`)
 
 See https://packaging.python.org/en/latest/tutorials/packaging-projects/ and https://docs.python.org/3/distutils/setupscript.html for more information about each tool.
+
+## Installing for developers
+Developers should do the following:
+```
+# Create a virtual environment
+python -m venv .venv
+
+# Activate the virtual environment
+.venv/Scripts/activate.ps1   # for Windows PowerShell
+.venv/Scripts/activate.bat   # for Windows Command Prompt
+source .venv/bin/activate    # for bash
+
+# Install in developer mode
+python -m pip install -e .[dev]
+```
