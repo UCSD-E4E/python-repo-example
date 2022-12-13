@@ -19,6 +19,7 @@ setup(
             'pytest',
             'pytest-cov',
             'pylint',
+            'wheel',
         ]
     },
 )
