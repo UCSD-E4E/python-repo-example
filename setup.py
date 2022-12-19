@@ -17,7 +17,7 @@ setup(
     extras_require={
         'dev': [
             'pytest',
-            'pytest-cov',
+            'coverage',
             'pylint',
             'wheel',
         ]
