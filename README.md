@@ -43,3 +43,51 @@ source .venv/bin/activate    # for bash
 # Install in developer mode
 python -m pip install -e .[dev]
 ```
+# Toolchains
+## `conda`
+`conda` should be used as the package and environment manager when we require `conda` only packages.
+
+In this case, the following files should be present:
+```
+environment.yml
+conda-win-64.lock
+conda-osx-64.lock
+conda-linux-64.lock
+pyproject.toml
+```
+
+Remove the following files:
+```
+setup.py
+```
+
+An example `environment.yml`:
+```
+name: example_env
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+
+dependencies:
+  - python=3.9
+  - conda-lock
+  - pip
+  - pip:
+    - numpy
+```
+Note that it is required to include `conda-lock` in the dependencies.
+
+To create this structure, first define `environment.yml` as you normally would.  Create the environment using `conda env create -f environment.yml`.  Once the environment is created successfully, run `conda activate {environment_name}`.  In the activated environment, run `conda-lock -k explicit`, which will create the `.lock` files.  Add and commit these.
+
+To add a new package, add it into `environment.yml`.  Then, in the activated environment, do the following:
+```
+conda-lock -k explicit
+conda update --file conda-{os}-64.lock
+```
+
+To create the environment once all the lock files are created, simply do the following:
+```
+conda create --file conda-{os}-64.lock
+conda activate {env_name}
+```
