@@ -25,7 +25,7 @@ def example_complex_function(arg_a: int, arg_b: List[str]) -> str:
     Returns:
         str: String in b concatenated using the string representation of a
     """
-    return f'{arg_a}'.join(arg_b)
+    return f"{arg_a}".join(arg_b)
 
 def example_entry_point() -> None:
     """Example entry point that exersizes all of the module's functions
